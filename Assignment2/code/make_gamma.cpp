@@ -64,7 +64,18 @@ int main(int argc, char **argv) {
   // the d-th cdata item
   // feel free to add additional helper functions to this file also
   // note that can definitely complete this *without* modifying any other files
+  for(int dn=0; dn < cdata.size(); dn++){
+    double h_count = cdata[dn].ht_cnts[0];
+    double t_count = cdata[dn].ht_cnts[1];
 
+    double p_a = chce_probs[0] * pow(ht_probs[0][0], h_count) * pow(ht_probs[0][1], t_count);
+    double p_b = chce_probs[1] * pow(ht_probs[1][0], h_count) * pow(ht_probs[1][1], t_count);
+
+    double sum = p_a + p_b;
+
+    gamma[dn][0] = p_a / sum;
+    gamma[dn][1] = p_b / sum;
+  }
   // END INSERT
   // show gamma
   for(int dn=0; dn < cdata.size(); dn++) {
