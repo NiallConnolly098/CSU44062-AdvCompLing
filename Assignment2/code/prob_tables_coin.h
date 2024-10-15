@@ -8,3 +8,4 @@ extern double chce_probs[2];
 // and z is code for a coin choice
 // ht_probs[z][y] = P(Toss=y| chce=z)
 extern double ht_probs[2][2];
+
